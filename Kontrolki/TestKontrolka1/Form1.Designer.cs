@@ -1,4 +1,4 @@
-﻿namespace Kontrolki
+﻿namespace TestKontrolka1
 {
     partial class Form1
     {
@@ -28,22 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.passBox = new System.Windows.Forms.TextBox();
+            this.passLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // passBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(50, 50);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 27);
-            this.textBox1.TabIndex = 0;
+            this.passBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.passBox.Location = new System.Drawing.Point(154, 39);
+            this.passBox.Name = "passBox";
+            this.passBox.Size = new System.Drawing.Size(314, 27);
+            this.passBox.TabIndex = 0;
+            // 
+            // passLabel
+            // 
+            this.passLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.passLabel.AutoSize = true;
+            this.passLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.passLabel.Location = new System.Drawing.Point(41, 35);
+            this.passLabel.Name = "passLabel";
+            this.passLabel.Size = new System.Drawing.Size(97, 28);
+            this.passLabel.TabIndex = 1;
+            this.passLabel.Text = "Password:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(533, 105);
+            this.Controls.Add(this.passLabel);
+            this.Controls.Add(this.passBox);
+            this.MinimumSize = new System.Drawing.Size(100, 100);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -54,6 +69,7 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox passBox;
+        private Label passLabel;
     }
 }

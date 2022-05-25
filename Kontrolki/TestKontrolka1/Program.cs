@@ -1,4 +1,4 @@
-namespace Kontrolki
+namespace TestKontrolka1
 {
     internal static class Program
     {

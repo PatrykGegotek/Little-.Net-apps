@@ -1,4 +1,4 @@
-﻿namespace Kontrolki
+﻿namespace Kontrolka1
 {
     partial class PasswordCheck
     {
@@ -48,7 +48,7 @@
             this.title.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.title.Font = new System.Drawing.Font("Segoe UI Emoji", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.title.Location = new System.Drawing.Point(0, 25);
+            this.title.Location = new System.Drawing.Point(0, 16);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(590, 42);
             this.title.TabIndex = 0;
@@ -60,19 +60,19 @@
             this.charNum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.charNum.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.charNum.Location = new System.Drawing.Point(80, 107);
+            this.charNum.Location = new System.Drawing.Point(80, 98);
             this.charNum.Name = "charNum";
             this.charNum.Size = new System.Drawing.Size(510, 28);
             this.charNum.TabIndex = 1;
             this.charNum.Text = "label2";
             // 
-            // bigChar
+            // big
             // 
             this.big.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.big.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.big.Location = new System.Drawing.Point(80, 153);
-            this.big.Name = "bigChar";
+            this.big.Location = new System.Drawing.Point(80, 144);
+            this.big.Name = "big";
             this.big.Size = new System.Drawing.Size(510, 28);
             this.big.TabIndex = 2;
             this.big.Text = "label1";
@@ -82,38 +82,38 @@
             this.special.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.special.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.special.Location = new System.Drawing.Point(80, 203);
+            this.special.Location = new System.Drawing.Point(80, 194);
             this.special.Name = "special";
             this.special.Size = new System.Drawing.Size(510, 28);
             this.special.TabIndex = 3;
             this.special.Text = "label3";
             // 
-            // num
+            // digit
             // 
             this.digit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.digit.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.digit.Location = new System.Drawing.Point(80, 251);
-            this.digit.Name = "num";
+            this.digit.Location = new System.Drawing.Point(80, 242);
+            this.digit.Name = "digit";
             this.digit.Size = new System.Drawing.Size(510, 28);
             this.digit.TabIndex = 4;
             this.digit.Text = "label4";
             // 
-            // imCharNum
+            // imChar
             // 
-            this.imChar.Image = global::Kontrolki.Properties.Resources._true;
-            this.imChar.Location = new System.Drawing.Point(14, 93);
-            this.imChar.Name = "imCharNum";
+            this.imChar.Image = global::Kontrolka1.Properties.Resources._true;
+            this.imChar.Location = new System.Drawing.Point(14, 84);
+            this.imChar.Name = "imChar";
             this.imChar.Size = new System.Drawing.Size(45, 42);
             this.imChar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imChar.TabIndex = 5;
             this.imChar.TabStop = false;
             // 
-            // imBigCar
+            // imBig
             // 
-            this.imBig.Image = global::Kontrolki.Properties.Resources._true;
-            this.imBig.Location = new System.Drawing.Point(14, 141);
-            this.imBig.Name = "imBigCar";
+            this.imBig.Image = global::Kontrolka1.Properties.Resources._true;
+            this.imBig.Location = new System.Drawing.Point(14, 132);
+            this.imBig.Name = "imBig";
             this.imBig.Size = new System.Drawing.Size(45, 42);
             this.imBig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imBig.TabIndex = 6;
@@ -121,19 +121,19 @@
             // 
             // imSpecial
             // 
-            this.imSpecial.Image = global::Kontrolki.Properties.Resources._true;
-            this.imSpecial.Location = new System.Drawing.Point(14, 189);
+            this.imSpecial.Image = global::Kontrolka1.Properties.Resources._true;
+            this.imSpecial.Location = new System.Drawing.Point(14, 180);
             this.imSpecial.Name = "imSpecial";
             this.imSpecial.Size = new System.Drawing.Size(45, 42);
             this.imSpecial.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imSpecial.TabIndex = 7;
             this.imSpecial.TabStop = false;
             // 
-            // imNum
+            // imDigit
             // 
-            this.imDigit.Image = global::Kontrolki.Properties.Resources._true;
-            this.imDigit.Location = new System.Drawing.Point(14, 237);
-            this.imDigit.Name = "imNum";
+            this.imDigit.Image = global::Kontrolka1.Properties.Resources._true;
+            this.imDigit.Location = new System.Drawing.Point(14, 228);
+            this.imDigit.Name = "imDigit";
             this.imDigit.Size = new System.Drawing.Size(45, 42);
             this.imDigit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imDigit.TabIndex = 8;

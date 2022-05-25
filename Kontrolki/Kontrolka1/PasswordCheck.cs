@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Kontrolki
+namespace Kontrolka1
 {
     public partial class PasswordCheck : UserControl
     {
@@ -18,6 +18,10 @@ namespace Kontrolki
         int minSpecial = 1;
         TextBox textBox;
 
+        public PasswordCheck()
+        {
+            InitializeComponent();
+        }
         public PasswordCheck(TextBox textBox)
         {
             this.textBox = textBox;
@@ -25,13 +29,20 @@ namespace Kontrolki
             Load();
         }
 
-        public PasswordCheck(int minChar, int minDigit, int minBig, int minSpecial)
+        public PasswordCheck(int minChar, int minDigit, int minBig, int minSpecial, TextBox textBox)
         {
             this.minChar = minChar;
             this.minDigit = minDigit;
             this.minBig = minBig;
             this.minSpecial = minSpecial;
+            textBox = textBox;
             InitializeComponent();
+            Load();
+        }
+
+        public void AddBox(TextBox text)
+        {
+            textBox = text;
             Load();
         }
 
