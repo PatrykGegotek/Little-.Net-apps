@@ -6,15 +6,8 @@ using System.Threading.Tasks;
 
 namespace Kontrolka2
 {
-    public class MyLabel
+    public class MyLabel : Label
     {
-        public int X;
-        public int Y;
-
-        public MyLabel( int x, int y)
-        {
-            X = x;
-            Y = y;
-        }
+        public int pos { get; set; }
     }
 }
