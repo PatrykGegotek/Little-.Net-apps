@@ -10,7 +10,15 @@ namespace Komis_samochodowy
         static public List<string> readEntity(string path)
         {
             List<string> brands = new List<string>();
-            StreamReader streamReader = new StreamReader(path + ".txt");
+            StreamReader streamReader;
+            try
+            {
+                streamReader = new StreamReader(path + ".txt");
+            } catch (Exception e)
+            {
+                return brands;
+            }
+            
 
             string str = streamReader.ReadLine();
 

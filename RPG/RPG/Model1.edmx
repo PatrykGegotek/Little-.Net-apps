@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RPG_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Artifact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Attribute">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AttributeOfArtifact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="AttributeID" Type="int" Nullable="false" />
+          <Property Name="ArtifactID" Type="int" Nullable="false" />
+          <Property Name="Value" Type="nchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AttributeOfCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="AttributeID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Arti">
+          <End Role="Artifact" Type="Self.Artifact" Multiplicity="1" />
+          <End Role="AttributeOfArtifact" Type="Self.AttributeOfArtifact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artifact">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AttributeOfArtifact">
+              <PropertyRef Name="ArtifactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Artifact_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Artifact" Type="Self.Artifact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Artifact">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attr">
+          <End Role="Attribute" Type="Self.Attribute" Multiplicity="1" />
+          <End Role="AttributeOfCategory" Type="Self.AttributeOfCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attribute">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AttributeOfCategory">
+              <PropertyRef Name="AttributeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attri">
+          <End Role="Attribute" Type="Self.Attribute" Multiplicity="1" />
+          <End Role="AttributeOfArtifact" Type="Self.AttributeOfArtifact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attribute">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AttributeOfArtifact">
+              <PropertyRef Name="AttributeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="AttributeOfCategory" Type="Self.AttributeOfCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AttributeOfCategory">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RPG_DBModelStoreContainer">
+          <EntitySet Name="Artifact" EntityType="Self.Artifact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Attribute" EntityType="Self.Attribute" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AttributeOfArtifact" EntityType="Self.AttributeOfArtifact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AttributeOfCategory" EntityType="Self.AttributeOfCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Arti" Association="Self.FK_Arti">
+            <End Role="Artifact" EntitySet="Artifact" />
+            <End Role="AttributeOfArtifact" EntitySet="AttributeOfArtifact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Artifact_Category" Association="Self.FK_Artifact_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Artifact" EntitySet="Artifact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attr" Association="Self.FK_Attr">
+            <End Role="Attribute" EntitySet="Attribute" />
+            <End Role="AttributeOfCategory" EntitySet="AttributeOfCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attri" Association="Self.FK_Attri">
+            <End Role="Attribute" EntitySet="Attribute" />
+            <End Role="AttributeOfArtifact" EntitySet="AttributeOfArtifact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat" Association="Self.FK_Cat">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="AttributeOfCategory" EntitySet="AttributeOfCategory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RPG_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Artifact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AttributeOfArtifact" Relationship="Self.FK_Arti" FromRole="Artifact" ToRole="AttributeOfArtifact" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Artifact_Category" FromRole="Artifact" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="Attribute">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AttributeOfCategory" Relationship="Self.FK_Attr" FromRole="Attribute" ToRole="AttributeOfCategory" />
+          <NavigationProperty Name="AttributeOfArtifact" Relationship="Self.FK_Attri" FromRole="Attribute" ToRole="AttributeOfArtifact" />
+        </EntityType>
+        <EntityType Name="AttributeOfArtifact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="AttributeID" Type="Int32" Nullable="false" />
+          <Property Name="ArtifactID" Type="Int32" Nullable="false" />
+          <Property Name="Value" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Artifact" Relationship="Self.FK_Arti" FromRole="AttributeOfArtifact" ToRole="Artifact" />
+          <NavigationProperty Name="Attribute" Relationship="Self.FK_Attri" FromRole="AttributeOfArtifact" ToRole="Attribute" />
+        </EntityType>
+        <EntityType Name="AttributeOfCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="AttributeID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Attribute" Relationship="Self.FK_Attr" FromRole="AttributeOfCategory" ToRole="Attribute" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Cat" FromRole="AttributeOfCategory" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Artifact" Relationship="Self.FK_Artifact_Category" FromRole="Category" ToRole="Artifact" />
+          <NavigationProperty Name="AttributeOfCategory" Relationship="Self.FK_Cat" FromRole="Category" ToRole="AttributeOfCategory" />
+        </EntityType>
+        <Association Name="FK_Arti">
+          <End Role="Artifact" Type="Self.Artifact" Multiplicity="1" />
+          <End Role="AttributeOfArtifact" Type="Self.AttributeOfArtifact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artifact">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AttributeOfArtifact">
+              <PropertyRef Name="ArtifactID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Artifact_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Artifact" Type="Self.Artifact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Artifact">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attr">
+          <End Role="Attribute" Type="Self.Attribute" Multiplicity="1" />
+          <End Role="AttributeOfCategory" Type="Self.AttributeOfCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attribute">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AttributeOfCategory">
+              <PropertyRef Name="AttributeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attri">
+          <End Role="Attribute" Type="Self.Attribute" Multiplicity="1" />
+          <End Role="AttributeOfArtifact" Type="Self.AttributeOfArtifact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Attribute">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AttributeOfArtifact">
+              <PropertyRef Name="AttributeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cat">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="AttributeOfCategory" Type="Self.AttributeOfCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AttributeOfCategory">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RPG_DB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Artifact" EntityType="Self.Artifact" />
+          <EntitySet Name="Attribute" EntityType="Self.Attribute" />
+          <EntitySet Name="AttributeOfArtifact" EntityType="Self.AttributeOfArtifact" />
+          <EntitySet Name="AttributeOfCategory" EntityType="Self.AttributeOfCategory" />
+          <EntitySet Name="Category" EntityType="Self.Category" />
+          <AssociationSet Name="FK_Arti" Association="Self.FK_Arti">
+            <End Role="Artifact" EntitySet="Artifact" />
+            <End Role="AttributeOfArtifact" EntitySet="AttributeOfArtifact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Artifact_Category" Association="Self.FK_Artifact_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Artifact" EntitySet="Artifact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attr" Association="Self.FK_Attr">
+            <End Role="Attribute" EntitySet="Attribute" />
+            <End Role="AttributeOfCategory" EntitySet="AttributeOfCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attri" Association="Self.FK_Attri">
+            <End Role="Attribute" EntitySet="Attribute" />
+            <End Role="AttributeOfArtifact" EntitySet="AttributeOfArtifact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cat" Association="Self.FK_Cat">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="AttributeOfCategory" EntitySet="AttributeOfCategory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RPG_DBModelStoreContainer" CdmEntityContainer="RPG_DB">
+          <EntitySetMapping Name="Artifact">
+            <EntityTypeMapping TypeName="RPG_DBModel.Artifact">
+              <MappingFragment StoreEntitySet="Artifact">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attribute">
+            <EntityTypeMapping TypeName="RPG_DBModel.Attribute">
+              <MappingFragment StoreEntitySet="Attribute">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttributeOfArtifact">
+            <EntityTypeMapping TypeName="RPG_DBModel.AttributeOfArtifact">
+              <MappingFragment StoreEntitySet="AttributeOfArtifact">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AttributeID" ColumnName="AttributeID" />
+                <ScalarProperty Name="ArtifactID" ColumnName="ArtifactID" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttributeOfCategory">
+            <EntityTypeMapping TypeName="RPG_DBModel.AttributeOfCategory">
+              <MappingFragment StoreEntitySet="AttributeOfCategory">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AttributeID" ColumnName="AttributeID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="RPG_DBModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
