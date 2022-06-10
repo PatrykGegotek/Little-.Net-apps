@@ -39,7 +39,7 @@ namespace RPG
             var ctx = new RPG_DB();
             AttributeOfCategory attributeOfCategory = new AttributeOfCategory
             {
-                ID = ctx.AttributeOfCategory.Count(),
+                ID = Essentials.getHighestAttributeOfCategory(),
                 CategoryID = category.ID,
                 AttributeID = chosenAttribute.ID
             };

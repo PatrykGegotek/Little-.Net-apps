@@ -4,18 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="39b20e32b19e4b458fdc71447cc7acfb" Name="Diagram1">
-        <EntityTypeShape EntityType="RPG_DBModel.Artifact" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="RPG_DBModel.Attribute" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="RPG_DBModel.AttributeOfArtifact" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="RPG_DBModel.AttributeOfCategory" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="RPG_DBModel.Category" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+      <Diagram DiagramId="39b20e32b19e4b458fdc71447cc7acfb" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="RPG_DBModel.Artifact" Width="1.5" PointX="7.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RPG_DBModel.Attribute" Width="1.5" PointX="7.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RPG_DBModel.AttributeOfArtifact" Width="1.5" PointX="10.375" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RPG_DBModel.AttributeOfCategory" Width="1.5" PointX="4.375" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RPG_DBModel.Category" Width="1.5" PointX="4.5" PointY="3.625" IsExpanded="true" />
         <AssociationConnector Association="RPG_DBModel.FK_Arti" ManuallyRouted="false" />
         <AssociationConnector Association="RPG_DBModel.FK_Artifact_Category" ManuallyRouted="false" />
         <AssociationConnector Association="RPG_DBModel.FK_Attr" ManuallyRouted="false" />
         <AssociationConnector Association="RPG_DBModel.FK_Attri" ManuallyRouted="false" />
         <AssociationConnector Association="RPG_DBModel.FK_Cat" ManuallyRouted="false" />
-      </Diagram>
+        <EntityTypeShape EntityType="RPG_DBModel.Permission" Width="1.5" PointX="7.5" PointY="1.125" />
+        <EntityTypeShape EntityType="RPG_DBModel.User" Width="1.5" PointX="2.375" PointY="2.25" />
+        <EntityTypeShape EntityType="RPG_DBModel.UserPermission" Width="1.5" PointX="4.5" PointY="1.125" />
+        <AssociationConnector Association="RPG_DBModel.FK_Artifact_User" />
+        <AssociationConnector Association="RPG_DBModel.FK_Attribute_User" />
+        <AssociationConnector Association="RPG_DBModel.FK_Category_User" />
+        <AssociationConnector Association="RPG_DBModel.FK_UserPermission_Perm" />
+        <AssociationConnector Association="RPG_DBModel.FK_UserPermission_User" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

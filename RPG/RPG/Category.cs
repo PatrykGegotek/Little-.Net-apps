@@ -23,10 +23,12 @@ namespace RPG
     
         public int ID { get; set; }
         public string Name { get; set; }
+        public int CreatorID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Artifact> Artifact { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AttributeOfCategory> AttributeOfCategory { get; set; }
+        public virtual User User { get; set; }
     }
 }

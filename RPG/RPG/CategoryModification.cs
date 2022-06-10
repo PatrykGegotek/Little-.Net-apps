@@ -23,6 +23,7 @@ namespace RPG
         private void CategoryModification_Load(object sender, EventArgs e)
         {
             this.name.Text = category.Name;
+            this.author.Text = Authentication.getUserByID(category.CreatorID).Name;
             populateList();
         }
 
@@ -37,21 +38,24 @@ namespace RPG
 
         private void populateList()
         {
-            attributes = Essentials.getCategoryAttributes(category.ID);
+            attributes = Essentials.getAttributesOfCategoryByID(category.ID);
             this.attributesBox.Items.Clear();
-            this.index.Items.Clear();
             foreach (Attribute attribute in attributes)
             {
                 this.attributesBox.Items.Add(attribute.Name);
-                this.index.Items.Add(attribute.ID);
             }
         }
 
         private void delete_Click(object sender, EventArgs e)
         {
             var attribute = attributes[attributesBox.SelectedIndex];
-            Essentials.DeleteAttributeFromCategory(category.ID, attribute.ID);
+            Essentials.DeleteAttributeOfCategory(category.ID, attribute.ID);
             populateList();
+        }
+
+        private void index_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

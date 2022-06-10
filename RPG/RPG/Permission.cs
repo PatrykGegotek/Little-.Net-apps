@@ -12,22 +12,18 @@ namespace RPG
     using System;
     using System.Collections.Generic;
     
-    public partial class Artifact
+    public partial class Permission
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Artifact()
+        public Permission()
         {
-            this.AttributeOfArtifact = new HashSet<AttributeOfArtifact>();
+            this.UserPermission = new HashSet<UserPermission>();
         }
     
         public int ID { get; set; }
-        public int CategoryID { get; set; }
         public string Name { get; set; }
-        public int CreatorID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AttributeOfArtifact> AttributeOfArtifact { get; set; }
-        public virtual Category Category { get; set; }
-        public virtual User User { get; set; }
+        public virtual ICollection<UserPermission> UserPermission { get; set; }
     }
 }

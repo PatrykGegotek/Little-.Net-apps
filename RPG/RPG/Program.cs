@@ -18,7 +18,7 @@ namespace RPG
             //Basics.addAttributes();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ViewCategories());
+            Application.Run(new Login());
         }
     }
 }

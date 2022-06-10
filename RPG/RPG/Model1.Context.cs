@@ -30,5 +30,8 @@ namespace RPG
         public virtual DbSet<AttributeOfArtifact> AttributeOfArtifact { get; set; }
         public virtual DbSet<AttributeOfCategory> AttributeOfCategory { get; set; }
         public virtual DbSet<Category> Category { get; set; }
+        public virtual DbSet<Permission> Permission { get; set; }
+        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<UserPermission> UserPermission { get; set; }
     }
 }

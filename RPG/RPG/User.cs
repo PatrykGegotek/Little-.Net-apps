@@ -12,23 +12,28 @@ namespace RPG
     using System;
     using System.Collections.Generic;
     
-    public partial class Attribute
+    public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Attribute()
+        public User()
         {
-            this.AttributeOfCategory = new HashSet<AttributeOfCategory>();
-            this.AttributeOfArtifact = new HashSet<AttributeOfArtifact>();
+            this.Artifact = new HashSet<Artifact>();
+            this.Attribute = new HashSet<Attribute>();
+            this.Category = new HashSet<Category>();
+            this.UserPermission = new HashSet<UserPermission>();
         }
     
         public int ID { get; set; }
         public string Name { get; set; }
-        public int CreatorID { get; set; }
+        public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AttributeOfCategory> AttributeOfCategory { get; set; }
+        public virtual ICollection<Artifact> Artifact { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AttributeOfArtifact> AttributeOfArtifact { get; set; }
-        public virtual User User { get; set; }
+        public virtual ICollection<Attribute> Attribute { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Category> Category { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserPermission> UserPermission { get; set; }
     }
 }
