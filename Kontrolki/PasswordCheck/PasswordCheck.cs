@@ -35,7 +35,7 @@ namespace PasswordCheck
             this.minDigit = minDigit;
             this.minBig = minBig;
             this.minSpecial = minSpecial;
-            textBox = textBox;
+            this.textBox = textBox;
             InitializeComponent();
             Load();
         }
